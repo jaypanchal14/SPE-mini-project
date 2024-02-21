@@ -8,15 +8,16 @@
       docker_image:
         name: "jaypanchal14/spe-mini-project"
         source: pull
-      register: docker_pull_result
+      register: pull_result
 
     - name: Display Docker Pull Result
       debug:
-        var: docker_pull_result
+        var: pull_result
 
     - name: Start Docker service
       service:
         name: docker
         state: started
+
     - name: Running container
-      shell: docker run -it -d --name spe-mini-project jaypanchal14/spe-mini-project
+      shell: docker run -it -d --name spe-container jaypanchal14/spe-mini-project
