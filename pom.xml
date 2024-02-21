@@ -35,6 +35,7 @@
     </dependencies>
 
     <build>
+        <finalName>spe-mini-project</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
