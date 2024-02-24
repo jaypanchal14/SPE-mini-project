@@ -16,66 +16,116 @@ public class SpeMiniProjectApplication {
         System.out.println("3)Multiplication");
         System.out.println("4)Division");
         System.out.println("5)Square-root");
-        System.out.println("6)Modulo");
-        System.out.println("Please select an operation from above (between 1 to 6): ");
+        System.out.println("6)Factorial");
+        System.out.println("7)Natural logarithm");
+        System.out.println("8)Power function");
+        System.out.println("Please select an operation from above (between 1 to 8): ");
+        try (Scanner s = new Scanner(System.in)) {
 
-        Scanner s = new Scanner(System.in);
+            int operation = s.nextInt();
+            double num1, num2;
 
-        int operation = s.nextInt();
-        double num1, num2;
+            switch (operation) {
+                case 1:
+                    System.out.println("Enter two numbers separated by space(s): ");
+                    num1 = s.nextDouble();
+                    num2 = s.nextDouble();
+                    System.out.println("Result of addition: " + addition(num1, num2));
+                    break;
+                case 2:
+                    System.out.println("Enter two numbers separated by space(s): ");
 
-        switch(operation){
-            case 1:
-                System.out.println("Enter two numbers separated by space(s): ");
-                num1 = s.nextDouble();
-                num2 = s.nextDouble();
-                System.out.println("Result of addition: "+(num1+num2));
-                break;
-            case 2:
-                System.out.println("Enter two numbers separated by space(s): ");
+                    num1 = s.nextDouble();
+                    num2 = s.nextDouble();
+                    System.out.println("Result of subtraction: " + subtract(num1, num2));
+                    break;
+                case 3:
+                    System.out.println("Enter two numbers separated by space(s): ");
 
-                num1 = s.nextDouble();
-                num2 = s.nextDouble();
-                System.out.println("Result of subtraction: "+(num1-num2));
-                break;
-            case 3:
-                System.out.println("Enter two numbers separated by space(s): ");
+                    num1 = s.nextDouble();
+                    num2 = s.nextDouble();
+                    System.out.println("Result of multiplication: " + multiplication(num1, num2));
+                    break;
+                case 4:
+                    System.out.println("Enter two numbers separated by space(s): ");
 
-                num1 = s.nextDouble();
-                num2 = s.nextDouble();
-                System.out.println("Result of multiplication: "+(num1*num2));
-                break;
-            case 4:
-                System.out.println("Enter two numbers separated by space(s): ");
+                    num1 = s.nextDouble();
+                    num2 = s.nextDouble();
+                    if (num2 == 0) {
+                        System.out.println("Division by zero is not allowed");
+                    } else {
+                        System.out.println("Result of division: " + division(num1, num2));
+                    }
+                    break;
+                case 5:
+                    System.out.println("Enter a number:");
+                    num1 = s.nextDouble();
+                    System.out.println("Result of square-root: " + squareRoot(num1));
+                    break;
+                case 6:
+                    System.out.println("Enter a number: ");
+                    num1 = s.nextDouble();
+                    System.out.println("Result of factorial: " + factorial(num1));
+                    break;
+                case 7:
+                    System.out.println("Enter a number:");
+                    num1 = s.nextDouble();
+                    System.out.println("Result of natual-logarithm: " + naturalLog(num1));
+                    break;
+                case 8:
+                    System.out.println("Enter two numbers separated by space(s): ");
+                    num1 = s.nextDouble();
+                    num2 = s.nextDouble();
+                    System.out.println("Result of num1^num2(power): " + power(num1, num2));
+                    break;
+                default:
+                    System.out.println("Invalid input given while selecting operation. Exiting...");
+            }
+            //s.close();
 
-                num1 = s.nextDouble();
-                num2 = s.nextDouble();
-                if(num2 == 0){
-                    System.out.println("Division by zero is not allowed");
-                }else{
-                    System.out.println("Result of division: "+(num1/num2));
-                }
-                break;
-            case 5:
-                System.out.println("Enter a number:");
-                num1 = s.nextDouble();
-                System.out.println("Result of square-root: "+Math.sqrt(num1));
-                break;
-            case 6:
-                System.out.println("Enter two numbers separated by space(s): ");
-
-                num1 = s.nextDouble();
-                num2 = s.nextDouble();
-                if(num2 == 0){
-                    System.out.println("Division by zero is not allowed.");
-                }else {
-                    System.out.println("Result of Modulo: " + (num1 % num2));
-                }
-                break;
-            default:
-                System.out.println("Invalid input given while selecting operation. Exiting...");
-                //break;
+        } catch (Exception e) {
+            System.out.println("Exception caught with msg: " + e.getMessage());
         }
-        s.close();
+    }
+
+    public static double addition(double a, double b){
+        return a+b;
+    }
+
+    public static double subtract(double a, double b){
+        return a-b;
+    }
+
+    public static double multiplication(double a, double b){
+        return a*b;
+    }
+
+    public static double division(double a, double b) throws Exception {
+        if(b==0){
+            System.out.println("Division by zero is not allowed");
+            throw new Exception("Division by zero is not allowed");
+        }else{
+            return a/b;
+        }
+    }
+
+    public static double squareRoot(double a){
+        return Math.sqrt(a);
+    }
+
+    public static double factorial(double a){
+        double res = 1;
+        for(double i=1; i<=a; i++){
+            res *= i;
+        }
+        return res;
+    }
+
+    public static double naturalLog(double a){
+        return Math.log(a);
+    }
+
+    public static double power(double a, double b){
+        return Math.pow(a,b);
     }
 }
