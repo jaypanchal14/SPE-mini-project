@@ -112,9 +112,12 @@ public class SpeMiniProjectApplication {
         return Math.sqrt(a);
     }
 
-    public static double factorial(double a){
-        double res = 1;
-        for(double i=1; i<=a; i++){
+    public static long factorial(double a){
+        if (a < 0) {
+            throw new IllegalArgumentException("Factorial is not defined for negative numbers");
+        }
+        long res = 1;
+        for(int i=1; i<=a; i++){
             res *= i;
         }
         return res;
