@@ -57,7 +57,6 @@ class SpeMiniProjectApplicationTests {
     @Test
     void power(){
         double res = SpeMiniProjectApplication.power(2, 3);
-
         Assertions.assertEquals(8.0, res);
     }
 
