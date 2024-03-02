@@ -81,7 +81,6 @@ public class SpeMiniProjectApplication {
                 default:
                     System.out.println("Invalid input given while selecting operation. Exiting...");
             }
-            //s.close();
 
         } catch (Exception e) {
             System.out.println("Exception caught with msg: " + e.getMessage());
