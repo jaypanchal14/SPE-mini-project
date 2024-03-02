@@ -14,7 +14,7 @@ Steps :
 Note:
 As, we have added web-hook for pipeline triggering, whenever we make a new commit, the pipeline will start running.
 
-To avoid the updation of ngrok public url: (run with defined domain name) <br>
+To avoid the editing ngrok public url on github: (run with defined domain name) <br>
 ```
 ngrok http 8080 --domain=present-neat-mako.ngrok-free.app
 ```
